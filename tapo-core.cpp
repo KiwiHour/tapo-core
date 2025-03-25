@@ -16,7 +16,6 @@ private:
 	void handshake()
 	{
 		int handshakeResult = core.handshake();
-
 		if (handshakeResult > 0)
 		{
 			throw std::runtime_error("Failed to shake hands with the device, error code: " + to_string(handshakeResult));
@@ -112,6 +111,7 @@ public:
 
 class ColorLightBulb : public LightBulb
 {
+public:
 	using LightBulb::LightBulb;
 
 	int setColorTemperature(int temperature_k)
