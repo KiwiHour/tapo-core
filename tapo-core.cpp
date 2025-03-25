@@ -1,8 +1,7 @@
 #include <string>
+#include <stdexcept>
 #include <nlohmann/json.hpp>
 #include "tplink-core.cpp"
-
-#include <Arduino.h>
 
 using namespace std;
 using namespace nlohmann;
@@ -13,6 +12,17 @@ private:
 	TPLinkCore core;
 	int cookieAge_ms = 0; // cookie age in milliseconds
 
+	// Throws runtime error if handshake fails
+	void handshake()
+	{
+		int handshakeResult = core.handshake();
+
+		if (handshakeResult > 0)
+		{
+			throw std::runtime_error("Failed to shake hands with the device, error code: " + to_string(handshakeResult));
+		}
+	}
+
 public:
 	string ipAddress;
 
@@ -21,7 +31,7 @@ public:
 		ipAddress = _ipAddress;
 		core.deviceIP = _ipAddress;
 
-		Serial.println(core.handshake());
+		handshake();
 	}
 
 	/*
@@ -42,21 +52,21 @@ public:
 		// If the cookie age reaches past 95% of the max cookie duration, execute another handshake for a new cookie
 		if (cookieAge_ms > (float)(core.cookieTimeout_s * 1000) * 0.95)
 		{
-			core.handshake();
+			handshake();
 			return true;
 		}
 
 		return false;
 	}
 
-	int on()
+	int turnOn()
 	{
 		json params;
 		params["device_on"] = true;
 		return setDeviceInfo(params);
 	}
 
-	int off()
+	int turnOff()
 	{
 		json params;
 		params["device_on"] = false;
