@@ -1,7 +1,7 @@
 #include <string>
 #include <stdexcept>
 #include <nlohmann/json.hpp>
-#include "tplink-core.cpp"
+#include "tplink-core.h"
 
 using namespace std;
 using namespace nlohmann;
