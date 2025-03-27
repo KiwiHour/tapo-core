@@ -84,6 +84,11 @@ protected:
 		return sendRequest("set_device_info", params)["error_code"];
 	}
 
+	json getDeviceInfo()
+	{
+		return sendRequest("get_device_info")["result"];
+	}
+
 	json sendRequest(string method, json params = "{}") // Defaults to no parameters
 	{
 		json request;
@@ -106,6 +111,11 @@ public:
 		json params;
 		params["brightness"] = brightness;
 		return setDeviceInfo(params);
+	}
+
+	int getBrightness()
+	{
+		return getDeviceInfo["brightness"];
 	}
 };
 
@@ -135,6 +145,21 @@ public:
 		params["color_temp"] = 0;
 		params["saturation"] = saturation;
 		return setDeviceInfo(params);
+	}
+
+	int getColorTemperature()
+	{
+		return getDeviceInfo["color_temp"];
+	}
+
+	int getHue()
+	{
+		return getDeviceInfo["hue"];
+	}
+
+	int getSaturation()
+	{
+		return getDeviceInfo["saturation"];
 	}
 };
 
