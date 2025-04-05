@@ -1,3 +1,4 @@
+#include "tplink-core.cpp"
 #include <string>
 #include <stdexcept>
 #include <nlohmann/json.hpp>
