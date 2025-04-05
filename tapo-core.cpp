@@ -114,7 +114,7 @@ public:
 
 	int getBrightness()
 	{
-		return getDeviceInfo["brightness"];
+		return getDeviceInfo()["brightness"];
 	}
 };
 
@@ -148,17 +148,17 @@ public:
 
 	int getColorTemperature()
 	{
-		return getDeviceInfo["color_temp"];
+		return getDeviceInfo()["color_temp"];
 	}
 
 	int getHue()
 	{
-		return getDeviceInfo["hue"];
+		return getDeviceInfo()["hue"];
 	}
 
 	int getSaturation()
 	{
-		return getDeviceInfo["saturation"];
+		return getDeviceInfo()["saturation"];
 	}
 };
 
