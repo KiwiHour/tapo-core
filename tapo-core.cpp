@@ -40,7 +40,7 @@ public:
 	 * So its a good idea to ensure you increment the cookie age before sending anything to the device, especially for 24/7 runtime projects
 	 *
 	 * This method also automatically executes a core handshake after the cookie age has gone beyond the threshold
-	 *
+	 * @param milliseconds How many ms have gone past since the last increment call
 	 * @returns Whether or not a core handshake was executed or not
 	 */
 	bool incrementCookieAge(int milliseconds)
