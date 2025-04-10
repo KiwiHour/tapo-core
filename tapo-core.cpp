@@ -72,6 +72,11 @@ public:
 		return setDeviceInfo(params);
 	}
 
+	bool isOn()
+	{
+		return getDeviceInfo()["device_on"];
+	}
+
 	json getDeviceUsage()
 	{
 		return sendRequest("get_device_usage")["result"];
