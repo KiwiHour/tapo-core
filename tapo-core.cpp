@@ -82,16 +82,16 @@ public:
 		return sendRequest("get_device_usage")["result"];
 	}
 
+	json getDeviceInfo()
+	{
+		return sendRequest("get_device_info")["result"];
+	}
+
 protected:
 	// Returns the error code
 	int setDeviceInfo(json params)
 	{
 		return sendRequest("set_device_info", params)["error_code"];
-	}
-
-	json getDeviceInfo()
-	{
-		return sendRequest("get_device_info")["result"];
 	}
 
 	json sendRequest(string method, json params = "{}") // Defaults to no parameters
