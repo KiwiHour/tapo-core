@@ -82,6 +82,7 @@ public:
 		return sendRequest("get_device_usage")["result"];
 	}
 
+protected:
 	json getDeviceInfo()
 	{
 		return sendRequest("get_device_info")["result"];
@@ -91,8 +92,6 @@ public:
 	{
 		return sendRequest("set_device_info", params)["error_code"];
 	}
-
-protected:
 	json sendRequest(string method, json params = "{}") // Defaults to no parameters
 	{
 		json request;
