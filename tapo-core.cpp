@@ -6,6 +6,19 @@
 using namespace std;
 using namespace nlohmann;
 
+struct BulbAttributes
+{
+	bool powerState;
+	int brightness;
+}
+
+struct ColorBulbAttributes : BulbAttributes
+{
+	int colorTemperature;
+	int hue;
+	int saturation;
+}
+
 class GenericDevice
 {
 private:
@@ -120,6 +133,15 @@ public:
 	{
 		return getDeviceInfo()["brightness"];
 	}
+
+	BulbAttributes getAttributes()
+	{
+		BulbAttributes attributes;
+		json deviceInfo = getDeviceInfo();
+		attributes.powerState = deviceInfo["device_on"];
+		attributes.brightness = deviceInfo["brightness"];
+		return attributes
+	}
 };
 
 class ColorLightBulb : public LightBulb
@@ -163,6 +185,20 @@ public:
 	int getSaturation()
 	{
 		return getDeviceInfo()["saturation"];
+	}
+
+	ColorBulbAttributes getAttributes()
+	{
+		ColorBulbAttributes attributes;
+		json deviceInfo = getDeviceInfo();
+
+		attributes.powerState = deviceInfo["device_on"];
+		attributes.brightness = deviceInfo["brightness"];
+		attributes.colorTemperature = deviceInfo["hue"];
+		attributes.hue = deviceInfo["color_temp"];
+		attributes.saturation = deviceInfo["saturation"];
+
+		return attributes
 	}
 };
 
