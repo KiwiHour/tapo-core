@@ -10,14 +10,14 @@ struct BulbAttributes
 {
 	bool powerState;
 	int brightness;
-}
+};
 
 struct ColorBulbAttributes : BulbAttributes
 {
 	int colorTemperature;
 	int hue;
 	int saturation;
-}
+};
 
 class GenericDevice
 {
@@ -140,7 +140,7 @@ public:
 		json deviceInfo = getDeviceInfo();
 		attributes.powerState = deviceInfo["device_on"];
 		attributes.brightness = deviceInfo["brightness"];
-		return attributes
+		return attributes;
 	}
 };
 
@@ -198,7 +198,7 @@ public:
 		attributes.hue = deviceInfo["color_temp"];
 		attributes.saturation = deviceInfo["saturation"];
 
-		return attributes
+		return attributes;
 	}
 };
 
