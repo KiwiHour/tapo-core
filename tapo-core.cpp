@@ -194,8 +194,8 @@ public:
 
 		attributes.powerState = deviceInfo["device_on"];
 		attributes.brightness = deviceInfo["brightness"];
-		attributes.colorTemperature = deviceInfo["hue"];
-		attributes.hue = deviceInfo["color_temp"];
+		attributes.colorTemperature = deviceInfo["color_temp"];
+		attributes.hue = deviceInfo["hue"];
 		attributes.saturation = deviceInfo["saturation"];
 
 		return attributes;
