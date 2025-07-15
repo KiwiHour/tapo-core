@@ -54,13 +54,13 @@ public:
 	int turnOff();
 	bool isOn();
 
-	json getDeviceUsage();
+	nlohmann::json getDeviceUsage();
 
 protected:
 	// Returns the error code
-	int setDeviceInfo(json params);
-	json getDeviceInfo();
-	json sendRequest(string method, json params = "{}"); // Defaults to no parameters
+	int setDeviceInfo(nlohmann::json params);
+	nlohmann::json getDeviceInfo();
+	nlohmann::json sendRequest(string method, nlohmann::json params = "{}"); // Defaults to no parameters
 };
 
 class LightBulb : public GenericDevice

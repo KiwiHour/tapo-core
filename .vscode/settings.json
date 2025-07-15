@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"*.hs": "haskell",
+		"stdexcept": "cpp",
+		"xstring": "cpp"
+	}
+}
