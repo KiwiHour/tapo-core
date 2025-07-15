@@ -62,7 +62,7 @@ int GenericDevice::setDeviceInfo(nlohmann::json params)
 	return sendRequest("set_device_info", params)["error_code"];
 }
 
-nlohmann::json GenericDevice::sendRequest(string method, nlohmann::json params = "{}")
+nlohmann::json GenericDevice::sendRequest(string method, nlohmann::json params)
 {
 	nlohmann::json request;
 	request["method"] = method;
