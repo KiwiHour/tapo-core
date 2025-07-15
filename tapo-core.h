@@ -1,6 +1,6 @@
 #pragma once
 
-#include "tplink-core.cpp"
+#include "tplink-core.h"
 #include <string>
 #include <stdexcept>
 #include <nlohmann/json.hpp>
